@@ -1,0 +1,79 @@
+<html>
+
+<head>
+  <!-- Material Design Lite -->
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+  <!-- Material Design icon font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    main {
+      color: black;
+      font-size: 150%;
+      line-height: 200%;
+      text-align: center;
+    }
+    
+    span {
+      color: #FFFFFF;
+      font-size: 100%;
+      text-align: center;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <!-- Simple header with fixed tabs. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+                mdl-layout--fixed-tabs">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- back button -->
+        <button class="mdl-button mdl-js-button">
+          back
+        </button>
+        <!-- Title -->
+        <span class="mdl-layout-title">New Run</span>
+        <!-- save button -->
+        <button class="mdl-button mdl-js-button">
+          save
+        </button>
+      </div>
+      <!-- Tabs -->
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Info</a>
+        <a href="#fixed-tab-2" class="mdl-layout__tab">Route</a>
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+        <div class="page-content">
+          <!-- Your content goes here -->
+          Date:
+          <br/> Time:
+          <br/> Distance Travelled:
+          <br/> Average Speed:
+          <br/>
+          <br/>
+
+          <!-- Raised button -->
+          <button class="mdl-button mdl-js-button mdl-button--raised">
+            Start
+          </button>
+          <!-- Raised disabled button-->
+          <button class="mdl-button mdl-js-button mdl-button--raised" disabled>
+            Stop
+          </button>
+        </div>
+      </section>
+      <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+        <div class="page-content">
+          <!-- Your content goes here -->
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
