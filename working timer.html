@@ -1,0 +1,56 @@
+
+<html>
+<head>
+    
+    <style>
+        #output{
+            }
+    </style>  
+    <script>
+
+   var time = 0;
+   var on = 0;
+
+   
+
+function reset(){
+    on = 0;
+    time = 0;
+    document.getElementById("startPause").innerHTML = "Start";
+
+}
+
+function increment(){
+    if(on == 1){
+        setTimeout(function(){
+        time++;
+        var mins = Math.floor(time/10/60);
+        var secs = Math.floor(time/10);
+        var tenths = time%10;
+        document.getElementById("output").innerHTML = mins + ":" + secs + ":" + tenths;
+            increment();
+    }, 100);
+   }
+}
+
+        function startPause(){
+     if(on == 0){
+        on = 1;
+        increment();
+        document.getElementById("startPause").innerHTML = "Pause";
+        }else{
+            on = 0;
+            document.getElementById("startPause").innerHTML = "Resume";
+        }
+}
+</script>
+</head>
+<body>
+<p id="output"></p>
+    <div id="controls">
+        
+        <button id="startPause" onclick="startPause()">Start</button>
+        <button onclick="reset()">Reset</button>
+        </div>
+    </body>
+<html>
