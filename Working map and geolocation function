@@ -17,10 +17,14 @@
   <body>
     <div id="map"></div>
     <script>
+// Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see the error "The Geolocation service
+// failed.", it means you probably did not give permission for the browser to
+// locate you.
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -37.9120467, lng: 145.1343136},  
+    center: {lat: -37.9120467, lng: 145.1343136},
       zoom: 16
 
   });
@@ -56,7 +60,49 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzDaN8fxOymJK1fVWg5E95cXcsYO1ncqY&signed_in=true&callback=initMap"
         async defer>
+   
         
+function savingdata(){
+    var path = [];
+    path.push(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+    var latLngBounds = new google.maps.LatLngBounds();
+for(var i = 0; i < path.length; i++) {
+  latLngBounds.extend(path[i]);
+  // Place the marker
+  new google.maps.Marker({
+    map: map,
+    position: path[i],
+    title: "Point " + (i + 1)
+  });
+}
+    var polyline = new google.maps.Polyline({
+  map: map,
+  path: path,
+  strokeColor: '#0000FF',
+  strokeOpacity: 0.7,
+  strokeWeight: 1
+});
+    map.fitBounds(latLngBounds);
+    for(var i = 0; i < 5; i++) {
+  // Create a random point using the user current position and a random generated number.
+  // The number will be once positive and once negative using based on the parity of i
+  // and to reduce the range the number is divided by 10
+  path.push(
+    new google.maps.LatLng(
+      position.coords.latitude + (Math.random() / 10 * ((i % 2) ? 1 : -1)),
+      position.coords.longitude + (Math.random() / 10 * ((i % 2) ? 1 : -1))
+    )
+  );
+}
+    function(positionError){
+          $("#error").append("Error: " + positionError.message + "<br />");
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10 * 1000 // 10 seconds
+        });
+      });
+
     </script>
   </body>
 </html>
