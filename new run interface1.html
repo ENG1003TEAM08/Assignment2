@@ -12,6 +12,7 @@
       font-size: 150%;
       line-height: 200%;
       text-align: center;
+
     }
     
     span {
@@ -30,8 +31,8 @@
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
         <!-- back button -->
-        <button class="mdl-button mdl-js-button">
-          back
+        <button class="mdl-button mdl-js-button mdl-button--icon" onclick="history.go(-1);">
+          <i class="material-icons">arrow_back</i>
         </button>
         <!-- Title -->
         <span class="mdl-layout-title">New Run</span>
@@ -50,7 +51,7 @@
       <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
         <div class="page-content">
           <!-- Your content goes here -->
-          Date:
+          <br/>Date:
           <br/> Time:
           <br/> Distance Travelled:
           <br/> Average Speed:
@@ -70,6 +71,7 @@
       <section class="mdl-layout__tab-panel" id="fixed-tab-2">
         <div class="page-content">
           <!-- Your content goes here -->
+            Track your route...
         </div>
       </section>
     </main>

@@ -1,0 +1,16 @@
+.demo-layout-transparent {
+  background: url('http://blog.codyapp.com/wp-content/uploads/2012/10/jogging_workout_beginners.jpg') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: black;
+
+}
+button.mdl-button {
+  padding: 40px 800px;
+}
+
+
+main{color:red}
