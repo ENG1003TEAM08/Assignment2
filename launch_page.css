@@ -7,12 +7,19 @@
   /* This background is dark, so we set text to white. Use 87% black instead if
      your background is light. */
   color: black;
-
+width:720px;
+height:100%
 }
-background{height: 80px; width: 70px;}
 button.mdl-button {
-  padding: 5% 42%;
+    padding: 8% 50%;
+  bottom:10px;
+ 
 }
 
+header{width:720px;
+height:100%}
 
-main{color:red}
+main{color:red;
+    width:720px;
+height:100%
+}
