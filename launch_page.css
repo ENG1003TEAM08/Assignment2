@@ -1,5 +1,6 @@
 .demo-layout-transparent {
-  background: url('http://blog.codyapp.com/wp-content/uploads/2012/10/jogging_workout_beginners.jpg') center / cover;
+  background: url('http://blog.codyapp.com/wp-content/uploads/2012/10/jogging_workout_beginners.jpg') left / cover;
+    height:100%
 }
 .demo-layout-transparent .mdl-layout__header,
 .demo-layout-transparent .mdl-layout__drawer-button {
@@ -8,8 +9,9 @@
   color: black;
 
 }
+background{height: 80px; width: 70px;}
 button.mdl-button {
-  padding: 40px 600px;
+  padding: 5% 42%;
 }
 
 
