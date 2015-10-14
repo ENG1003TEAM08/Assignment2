@@ -24,10 +24,12 @@
       font-size: 100%;
       text-align: center;
     }
+        a { font-size: 100%;
+        color:black;}
     #output{
             font-size: 200%
             }
-    .timerButton{font-size: 150%}
+    .timerButton{font-size: 100%}
   
     </style>
 </head>
@@ -45,7 +47,7 @@
         <!-- Title -->
         <span class="mdl-layout-title">New Run</span>
         <!-- save button -->
-        <button class="mdl-button mdl-js-button">
+        <button class="mdl-button mdl-js-button" >
           save
         </button>
       </div>
@@ -59,8 +61,28 @@
       <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
         <div class="page-content">
           <!-- page content -->
-            <br/> <h1>Date:</h1>
-            <br/> <h1>Time:</h1>
+            <br/> <a>Date:</a>
+            <html>
+<head>
+    
+    <style>
+        #output{
+            }
+    </style>  
+    
+
+</head>
+<body>
+    <p id="date"></p>
+
+<script>
+var d = new Date();
+document.getElementById("date").innerHTML = d.toDateString();
+</script>
+</body>
+<html>
+
+<a>Time:</a>
             <!-- timer -->
 <html>
 <head>
@@ -73,12 +95,13 @@
    var time = 0;
    var on = 0;
 
-   
-
 function reset(){
     on = 0;
     time = 0;
+    
+    document.getElementById("output").innerHTML = 0 + ":" + 0 + ":" + 0;
     document.getElementById("startPause").innerHTML = "Start";
+    document.getElementById("startPause").disabled = false;
 
 }
 
@@ -89,7 +112,7 @@ function increment(){
         var mins = Math.floor(time/10/60);
         var secs = Math.floor(time/10);
         var tenths = time%10;
-        document.getElementById("output").innerHTML = mins + ":" + secs + ":" + tenths;
+        document.getElementById("output").innerHTML = mins + " Mins " + secs + " Secs " + tenths ;
             increment();
     }, 100);
    }
@@ -100,41 +123,43 @@ function increment(){
         on = 1;
         increment();
         document.getElementById("startPause").innerHTML = "Pause";
+         document.getElementById("stop").disabled = false;
         }else{
             on = 0;
             document.getElementById("startPause").innerHTML = "Resume";
         }
 }
+        function stopSave(){ 
+            on = 0;
+        document.getElementById("startPause").disabled = true;
+            document.getElementById("stopSave").disabled = true;
+        }
 </script>
 </head>
 <body>
-<p id="output"></p>
+    <p id="output"></p>
     <div id="controls">
-        <button style = "height:3%;width:20%" class="timerButton" id="startPause" onclick="startPause()">Start</button>
-        <button style = "height:3%;width:20%" class="timerButton" onclick="reset()">Reset</button>
         </div>
     </body>
 <html>
 
-
-          <br/><h1>Distance Travelled:</h1> 
-          <br/><h1>Average Speed:</h1>
+<!-- calculate distance -->
+          <a>Distance Travelled:</a> 
+          <br/><a>Average Speed:</a>
           <br/>
           <br/>
-
-          <!-- Raised button -->
-          <button class="mdl-button mdl-js-button mdl-button--raised">
-            Start
-          </button>
-          <!-- Raised disabled button-->
-          <button class="mdl-button mdl-js-button mdl-button--raised" disabled>
-            Stop
-          </button>
+<button style = "height:10%;width:30%" class="timerButton" id="startPause" onclick="startPause()">Start</button>
+    
+    <button style = "height:10%;width:30%" class="timerButton" id="stopSave" onclick="stopSave()">Stop & Save</button>
+    
+    <button style = "height:10%;width:20%" class="timerButton" onclick="reset()">Reset</button>
+          
+          
         </div>
       </section>
       <section class="mdl-layout__tab-panel" id="fixed-tab-2">
         <div class="page-content">
-          <!-- Your content goes here -->
+          <!-- Route page content -->
 <html>
   <head>
     
