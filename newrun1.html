@@ -1,12 +1,16 @@
 <html>
-
-<head>
+<head>  
+  <title>New Run</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8"> 
   <!-- Material Design Lite -->
   <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
   <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
   <!-- Material Design icon font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <style>
+  <link rel="icon" type="image/png" href="logo.png" sizes="196x196" />
+ 
+    <style>
     main {
       color: black;
       font-size: 150%;
@@ -20,8 +24,12 @@
       font-size: 100%;
       text-align: center;
     }
-    
-  </style>
+    #output{
+            font-size: 200%
+            }
+    .timerButton{font-size: 150%}
+  
+    </style>
 </head>
 
 <body>
@@ -50,11 +58,67 @@
     <main class="mdl-layout__content">
       <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
         <div class="page-content">
-          <!-- Your content goes here -->
-          <br/>Date:
-          <br/> Time:
-          <br/> Distance Travelled:
-          <br/> Average Speed:
+          <!-- page content -->
+            <br/> <h1>Date:</h1>
+            <br/> <h1>Time:</h1>
+            <!-- timer -->
+<html>
+<head>
+    
+    <style>
+        
+    </style>  
+    <script>
+
+   var time = 0;
+   var on = 0;
+
+   
+
+function reset(){
+    on = 0;
+    time = 0;
+    document.getElementById("startPause").innerHTML = "Start";
+
+}
+
+function increment(){
+    if(on == 1){
+        setTimeout(function(){
+        time++;
+        var mins = Math.floor(time/10/60);
+        var secs = Math.floor(time/10);
+        var tenths = time%10;
+        document.getElementById("output").innerHTML = mins + ":" + secs + ":" + tenths;
+            increment();
+    }, 100);
+   }
+}
+
+        function startPause(){
+     if(on == 0){
+        on = 1;
+        increment();
+        document.getElementById("startPause").innerHTML = "Pause";
+        }else{
+            on = 0;
+            document.getElementById("startPause").innerHTML = "Resume";
+        }
+}
+</script>
+</head>
+<body>
+<p id="output"></p>
+    <div id="controls">
+        <button style = "height:3%;width:20%" class="timerButton" id="startPause" onclick="startPause()">Start</button>
+        <button style = "height:3%;width:20%" class="timerButton" onclick="reset()">Reset</button>
+        </div>
+    </body>
+<html>
+
+
+          <br/><h1>Distance Travelled:</h1> 
+          <br/><h1>Average Speed:</h1>
           <br/>
           <br/>
 
@@ -71,13 +135,9 @@
       <section class="mdl-layout__tab-panel" id="fixed-tab-2">
         <div class="page-content">
           <!-- Your content goes here -->
-            Track your route...
-            
 <html>
   <head>
-    <title>Geolocation</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
+    
     <style>
       html, body {
         height: 100%;
