@@ -29,7 +29,7 @@
     #output{
             font-size: 200%
             }
-    .timerButton{font-size: 100%}
+    .timerButton{font-size: 70%}
   
     </style>
 </head>
@@ -61,9 +61,9 @@
       <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
         <div class="page-content">
           <!-- page content -->
-            <br/> <a>Date:</a>
+           <a>Date:</a>
             <html>
-<head>
+           <head>
     
     <style>
         #output{
@@ -73,7 +73,7 @@
 
 </head>
 <body>
-    <p id="date"></p>
+    <a id="date"></a>
 
 <script>
 var d = new Date();
@@ -82,7 +82,7 @@ document.getElementById("date").innerHTML = d.toDateString();
 </body>
 <html>
 
-<a>Time:</a>
+                </br><a>Time:</a>
             <!-- timer -->
 <html>
 <head>
@@ -151,7 +151,7 @@ function increment(){
           <br/>
 <button style = "height:10%;width:30%" class="timerButton" id="startPause" onclick="startPause()">Start</button>
     
-    <button style = "height:10%;width:30%" class="timerButton" id="stopSave" onclick="stopSave()">Stop & Save</button>
+    <button style = "height:10%;width:45%" class="timerButton" id="stopSave" onclick="stopSave()">Stop & Save</button>
     
     <button style = "height:10%;width:20%" class="timerButton" onclick="reset()">Reset</button>
           
@@ -189,6 +189,7 @@ function initMap() {
       zoom: 16
 
   });
+   
   var infoWindow = new google.maps.InfoWindow({map: map});
 
   // Try HTML5 geolocation.
