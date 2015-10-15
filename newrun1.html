@@ -57,39 +57,22 @@
         <a href="#fixed-tab-2" class="mdl-layout__tab">Route</a>
       </div>
     </header>
+      
     <main class="mdl-layout__content">
       <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
         <div class="page-content">
           <!-- page content -->
            <a>Date:</a>
-            <html>
-           <head>
-    
-    <style>
-        #output{
-            }
-    </style>  
-    
 
-</head>
-<body>
-    <a id="date"></a>
+            <a id="date"></a>
+            <script>
+            var d = new Date();
+            document.getElementById("date").innerHTML = d.toDateString();
+            </script>
 
-<script>
-var d = new Date();
-document.getElementById("date").innerHTML = d.toDateString();
-</script>
-</body>
-<html>
 
-                </br><a>Time:</a>
+          </br><a>Time:</a>
             <!-- timer -->
-<html>
-<head>
-    
-    <style>
-        
-    </style>  
     <script>
 
    var time = 0;
@@ -136,13 +119,10 @@ function increment(){
             document.getElementById("stopSave").disabled = true;
         }
 </script>
-</head>
-<body>
+
     <p id="output"></p>
     <div id="controls">
         </div>
-    </body>
-<html>
 
 <!-- calculate distance -->
           <a>Distance Travelled:</a> 
@@ -155,8 +135,7 @@ function increment(){
     
     <button style = "height:10%;width:20%" class="timerButton" onclick="reset()">Reset</button>
           
-          
-        </div>
+
       </section>
       <section class="mdl-layout__tab-panel" id="fixed-tab-2">
         <div class="page-content">
