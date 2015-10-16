@@ -16,23 +16,18 @@
   /* This background is dark, so we set text to white. Use 87% black instead if your background is light. */
     color: white;}
    
-main {font-size:800%;
+main {font-size:500%;
     height:100%;
     width:100%;
     text-align: center;} 
 
-    .loginButton{font-size:300%}
+    
 </style>
 
     <div class="demo-layout-transparent mdl-layout mdl-js-layout">
   <header class="mdl-layout__header mdl-layout__header--transparent">
     <div class="mdl-layout__header-row">
-        
-        <!-- back button -->
-       <button class="mdl-button mdl-js-button mdl-button--icon" onclick="location.href='homeCard.html'">
-          <i class="material-icons">arrow_back</i>
-        </button>
-        
+                
       <!-- Title -->
       <span class="mdl-layout-title"></span>
       <!-- Add spacer, to align navigation to the right -->
@@ -42,26 +37,22 @@ main {font-size:800%;
     
 <main class="mdl-layout__content">
     </br></br></br></br></br></br></br></br></br></br></br>
-    <!-- user input: username -->
-<form action="#">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input style="color:white;font-size:180% " class="mdl-textfield__input" type="text" id="username" />
-    <label style="color:white;font-size:180%" class="mdl-textfield__label" for="username"  >Username</label>
-    </div>
-      </form>   
-      
-      <!-- user input: password -->
-<form action="#">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input style="color:white;font-size:180%" class="mdl-textfield__input" type="text" id="password" />
-    <label style="color:white;font-size:180%;" class="mdl-textfield__label" for="password"  >Password</label>
-  </div>
-</form>
-   <!-- log in button -->
-</br>
-<button style = "height:8%;width:30%;font-size:40%" class="login" onClick="location.href='home.html'">Log in</button>
+<div>   
+<!-- Colored FAB button -->
+      <button style="height:20%;width:30%;font-size:70%" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="location.href='newrun.html'">
+  <i class="material-icons"></i>
+          New Run
+</button>
+</div>   
+
+</br></br></br></br></br></br></br></br></br></br>
+<div>
+      <button style="height:20%;width:30%;font-size:70%" class="mdl-button mdl-js-button mdl-button--fab  mdl-button--colored" onclick="location.href='view.html'">
+  <i class="material-icons"></i>
+          View
+</button>
+   </div>
+    
   </main>
- 
-     
-    </div>
+  </div>
 </html>
