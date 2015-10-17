@@ -36,16 +36,21 @@ function positionUpdate(position) {
         lng: position.coords.longitude
       };
 
+    
       //infoWindow.setPosition(pos);
       //infoWindow.setContent('Location found.');
       map.setCenter(pos);
         
-var marker1 = new google.maps.Marker({
+var startPosition = new google.maps.Marker({
     position: pos,
     map: map,
+    icon:'http://maps.google.com/mapfiles/dd-startff.gif',
+    //icon:'http://maps.google.com/mapfiles/dd -startie.gif - http://maps.google.com/mapfiles/dd-endie.gif'
     title: 'Current Location'
   });
 };   
+    
+//savingdata(positionUpdate)
     
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
