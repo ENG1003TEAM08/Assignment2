@@ -40,16 +40,16 @@ function positionUpdate(position) {
       //infoWindow.setContent('Location found.');
       map.setCenter(pos);
         
-        var marker1 = new google.maps.Marker({
+var marker1 = new google.maps.Marker({
     position: pos,
     map: map,
     title: 'Current Location'
   });
+};   
+    
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(positionUpdate)
-        
-    }, function() {
+    navigator.geolocation.getCurrentPosition(positionUpdate, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
   } else {
@@ -68,7 +68,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzDaN8fxOymJK1fVWg5E95cXcsYO1ncqY&signed_in=true&callback=initMap"
         async defer>
-   
+        
+        
 
 function savingdata(){
     var path = [];
