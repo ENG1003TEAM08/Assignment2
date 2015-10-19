@@ -1,0 +1,285 @@
+<html>
+<head>  
+  <title>New Run</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8"> 
+  <!-- Material Design Lite -->
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+  <!-- Material Design icon font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="icon" type="image/png" href="logo.png" sizes="196x196" />
+ 
+    <style>
+    main {
+      color: black;
+      font-size: 150%;
+      line-height: 200%;
+      text-align: center;
+    }
+    
+    span {
+      color: #FFFFFF;
+      font-size: 100%;
+      text-align: center;
+    }
+        a { font-size: 100%;
+        color:black;}
+    #output{
+            font-size: 150%
+            }
+    .timerButton{font-size: 70%}
+  
+    </style>
+</head>
+
+<body>
+  <!-- Simple header with fixed tabs. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+                mdl-layout--fixed-tabs">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        
+          <!-- back button -->
+        <button class="mdl-button mdl-js-button mdl-button--icon" onclick="location.href='homeCard.html'">
+          <i class="material-icons">arrow_back</i>
+        </button>
+        
+          <!-- Title -->
+        <span class="mdl-layout-title">New Run</span>
+      </div>
+        
+      <!-- Tabs -->
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Info</a>
+        <a href="#fixed-tab-2" class="mdl-layout__tab">Route</a>
+      </div>
+    </header>
+      
+    <main class="mdl-layout__content">
+      <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+        <div class="page-content">
+          <!-- page content -->
+           <a>Date:</a>
+
+            <a id="date"></a>
+            <script>
+            var d = new Date();
+            document.getElementById("date").innerHTML = d.toDateString();
+            </script>
+
+
+          </br><a>Time:</a>
+            <!-- timer -->
+    <script>
+   var time = 0;
+   var on = 0;
+function reset(){
+    on = 0;
+    time = 0;
+    
+    document.getElementById("output").innerHTML = 0 + ":" + 0 + ":" + 0;
+    document.getElementById("startPause").innerHTML = "Start";
+    document.getElementById("startPause").disabled = false;
+    document.getElementById("stopSave").disabled = false;
+}
+function increment(){
+    if(on == 1){
+        setTimeout(function(){
+        time++;
+        var mins = Math.floor(time/10/60);
+        var secs = Math.floor((time/10)-(mins*60));
+        var tenths = time%10;
+        document.getElementById("output").innerHTML = mins + " Mins " + secs + " Secs " + tenths ;
+            increment();
+    }, 100);
+   }
+}        
+        
+        function startPause(){
+     if(on == 0){
+        on = 1;
+        increment();
+        startRecording();    
+         
+        document.getElementById("startPause").innerHTML = "Pause";
+        document.getElementById("stopSave").disabled = false;
+        }else{
+            on = 0;
+            document.getElementById("startPause").innerHTML = "Resume";
+            stopRecording();
+        
+        }
+}//**//End startPause
+        
+        function stopSave(){ 
+            on = 0;
+        document.getElementById("startPause").disabled = true;
+            document.getElementById("stopSave").disabled = true;
+        stopRecording();
+            
+            
+    //**//Pop-up message asking user to save
+    var runName = prompt("Please enter a name for your run", "");
+    
+    if (runName != null) {
+        //document.getElementById("demo").innerHTML =
+        //"Hello " + runName + "saved successfully!";
+    
+    }
+        }//**//End stopSave
+</script>
+
+    <p id="output"></p>
+    <div id="controls">
+        </div>
+
+<!-- calculate distance -->
+          <a>Distance Travelled:
+          </a> 
+          <br/><a>Average Speed:</a>
+          <br/>
+          <br/>
+<button style = "height:10%;width:30%" class="timerButton" id="startPause" onclick="startPause()">Start</button>
+    
+    <button style = "height:10%;width:45%" class="timerButton" id="stopSave" onclick="stopSave()">Stop & Save</button>
+    
+    <button style = "height:10%;width:20%" class="timerButton" onclick="reset()">Reset</button>
+          
+
+      </section>
+      <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+        <div class="page-content">
+          <!-- Route page content -->
+<html>
+  <head>
+    
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+      <script>
+ var recorderId; 
+ var path=[];
+          var polyline ;
+          var startPoint;
+          var positionMarker;
+          
+ function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -37.9120467, lng: 145.1343136},
+          zoom: 16
+    });
+    positionMarker = new google.maps.Marker({
+        map: map,
+        position: path[0],
+        title: "startpoint",
+  });       
+    
+     startPoint = new google.maps.Marker({
+        map: map,
+        position: path[0],
+        icon:'https://maps.google.com/mapfiles/dd-startff.gif',
+        title: "startpoint",
+  });       
+  //var infoWindow = new google.maps.InfoWindow({map: map});
+  
+    
+
+    
+};//**//End initMap   
+        
+        
+          
+          function positionUpdate(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+  
+      //infoWindow.setPosition(pos);
+      //infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+    
+    path.push(pos);
+    
+//**//marker move with position change
+  positionMarker.setPosition(pos); 
+  
+    
+for(var i = 0; i < path.length; i++) {
+  //latLngBounds.extend(path[i]);
+  
+        
+// Place the marker
+    
+  
+      
+ 
+        
+
+
+ polyline = new google.maps.Polyline({
+  map: map,
+  path: path,
+  strokeColor: '#0000FF',
+  strokeOpacity: 0.7,
+  strokeWeight: 1,
+}); 
+              
+polyline.setMap(map);
+ };//**//End for loop      
+};//**//End positionUpdate
+
+          function startRecording () {
+   recorderId= setInterval(function() {navigator.geolocation.getCurrentPosition(positionUpdate);
+                             }, 1000);                       
+                           };
+    
+    function stopRecording(){
+        clearInterval(recorderId);
+    }
+          
+          
+
+          
+          
+  // Try HTML5 geolocation.
+       
+  
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzDaN8fxOymJK1fVWg5E95cXcsYO1ncqY&signed_in=true&callback=initMap"
+        async defer>
+        
+        
+function savingdata(){
+ //   var path = [];
+ //   path.push(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+    //var latLngBounds = new google.maps.LatLngBounds();
+
+    
+
+  
+  
+}
+
+ 
+      </script>
+  </body>
+</html>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
