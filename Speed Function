@@ -1,0 +1,34 @@
+this.speed = function(distance,time)
+{
+	var averageSpeed = 0;
+	var Time = 0;
+	
+    var totalDifference = [];
+	
+	var timeDifference = 0;
+	
+	if (distance.length == 1 && time.length == 1)
+	{
+		return averageSpeed
+		
+	}
+	else if (distance.length > 1 & time.length > 1)
+	{
+		for (var p =1; p<time.length; ++p)
+		{
+			 timeDifference = time[p] - time[p-1];
+			totalDifference.push(timeDifference);
+			Time = totalDifference[0];
+		}
+
+		for (var d = 1; d< totalDifference; ++d)
+		{
+			Time = Time + totalDifference[d]; 
+		}       
+	averageSpeed = distance/Time;
+	return averageSpeed
+	}
+	
+	
+
+}
