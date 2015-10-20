@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+p {
+
+    text-indent: 50px;
+
+}
+
+p1 {
+
+    text-indent: 60px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+The DO IT app is your guide to daily fitness. You can easiy achieve what you have always thought might be hard with its aid in a much easier way. Plus the app itself is very simple to use. All you need to have is an active internet connection, your device's GPS turned on and know which button does what and you will be good to go <br/> <br/> <br/> <p> • Clicking the NEW button will redirect you to the recording page <br/> <p> • Clicking the START button will launch the timer and route <br/> </p> •You can toggle between the two tabs named INFO and ROUTE <br/> </p> The INFO page contains speed, time and distance of the run <br/> <p> • The route page will display your route taken on the map. <br/> <p> •If you wish to pause click the PAUSE button and RESUME to resume <br/> <p> •  When STOPandSAVE is clicked it will ask you to enter a name for it to be saved <br/> <p> • If you do not wish to save, simply hit the RESET button <br/> <p> • The saved data can be later viewed on the VIEW page <br/> <p> •To delete previous runs, go to VIEW page and click DELETE to clear.<br/> <p> • Finaly, get up and start working hard! 
+ 
+
+</body>
+
+</html>
